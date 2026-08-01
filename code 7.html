@@ -1,0 +1,217 @@
+<!DOCTYPE html><html class="dark" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Daily Deals | Colmado Elite</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#370e00",
+                        "primary-fixed-dim": "#abd600",
+                        "error": "#ffb4ab",
+                        "on-error": "#690005",
+                        "on-surface": "#e5e2e1",
+                        "surface-container-low": "#1c1b1b",
+                        "tertiary-fixed-dim": "#c5c7c8",
+                        "on-tertiary-fixed-variant": "#444748",
+                        "on-primary-fixed": "#161e00",
+                        "tertiary-fixed": "#e1e3e4",
+                        "inverse-primary": "#506600",
+                        "surface-dim": "#131313",
+                        "inverse-on-surface": "#313030",
+                        "error-container": "#93000a",
+                        "surface-bright": "#393939",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-container": "#201f1f",
+                        "on-secondary-container": "#531900",
+                        "surface-variant": "#353534",
+                        "primary-fixed": "#c3f400",
+                        "outline": "#8e9379",
+                        "tertiary-container": "#e1e3e4",
+                        "on-tertiary-container": "#626566",
+                        "surface-container-highest": "#353534",
+                        "outline-variant": "#444933",
+                        "tertiary": "#ffffff",
+                        "background": "#131313",
+                        "on-surface-variant": "#c4c9ac",
+                        "secondary-fixed-dim": "#ffb59a",
+                        "secondary-container": "#ff5e07",
+                        "on-tertiary-fixed": "#191c1d",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#3c4d00",
+                        "on-secondary": "#5a1b00",
+                        "secondary": "#ffb59a",
+                        "primary": "#ffffff",
+                        "primary-container": "#c3f400",
+                        "on-tertiary": "#2e3132",
+                        "on-secondary-fixed-variant": "#802a00",
+                        "on-background": "#e5e2e1",
+                        "surface-container-high": "#2a2a2a",
+                        "on-primary-container": "#556d00",
+                        "on-primary": "#283500",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-tint": "#abd600",
+                        "secondary-fixed": "#ffdbce",
+                        "surface": "#131313"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "base": "8px",
+                        "margin-desktop": "40px",
+                        "gutter": "24px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Montserrat"],
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "body-md": ["Inter"],
+                        "headline-xl": ["Montserrat"],
+                        "headline-lg": ["Montserrat"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-card {
+            background: rgba(42, 45, 46, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .deals-slider-container {
+            scroll-behavior: smooth;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .deals-slider-container::-webkit-scrollbar {
+            display: none;
+        }
+        .slider-item {
+            scroll-snap-align: center;
+        }
+        .lime-glow {
+            box-shadow: 0 0 20px rgba(195, 244, 0, 0.15);
+        }
+        .active-dot {
+            width: 32px;
+            background-color: #c3f400;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-white/5 shadow-sm pb-12">
+<div class="flex items-center justify-between px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary-fixed tracking-tight">Colmado Elite</div>
+<div class="hidden md:flex items-center gap-8"><a class="font-label-md text-on-surface-variant hover:text-primary-fixed transition-colors" href="index.html">Home</a><a class="font-label-md text-on-surface-variant hover:text-primary-fixed transition-colors" href="code 5.html">Categories</a><a class="font-label-md text-on-surface-variant hover:text-primary-fixed transition-colors" href="code 6.html">Cart</a></div>
+<div class="flex items-center gap-6">
+<div>
+</div>
+</div>
+</div>
+</nav>
+<main class="pb-16 min-h-screen overflow-hidden relative pt-32"><div class="w-full border-b border-white/5 bg-surface-container-lowest/50 backdrop-blur-md py-4 mb-8"><div class="max-w-container-max mx-auto px-margin-desktop flex flex-row justify-center items-center gap-8"><li><a href="#REP.DOM." class="font-label-md text-primary-fixed hover:text-primary transition-colors uppercase tracking-widest border border-primary-fixed rounded-full px-6 py-2">Ofertas del Día</a></li><li><a href="#REP.DOM. 1" class="font-label-md text-primary-fixed hover:text-primary transition-colors uppercase tracking-widest border border-primary-fixed rounded-full px-6 py-2">Selección Artesanal</a></li><li><a href="#REP.DOM. 2" class="font-label-md text-primary-fixed hover:text-primary transition-colors uppercase tracking-widest border border-primary-fixed rounded-full px-6 py-2">Delicias Importadas</a><a href="#REP.DOM. 3" class="font-label-md text-primary-fixed hover:text-primary transition-colors uppercase tracking-widest border border-primary-fixed rounded-full px-6 py-2">Reserva Exclusiva</a></li></div></div><div class="max-w-container-max mx-auto px-margin-desktop pt-12"><div class="grid grid-cols-1 md:grid-cols-3 gap-8"><div class="col-span-1 md:col-span-3 py-8 text-center"><h2 class="font-headline-md text-headline-md text-primary-fixed tracking-tight"><h1 id="REP.DOM">Ofertas del Día</h1></h2></div><div class="rounded-3xl overflow-hidden border border-white/5 shadow-2xl"><img alt="Artisanal Olive Oil" class="w-full h-[500px] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-E3TUbHy044YvRMYP8KXhrTDdQIs5R-ZA2EOJINtXJkSNfker_RqOSVv8WL9wJqTS80LIJGAXUFN-mX8VC41Z5x-CpTXJhWLRNZCke2F8qBnhmsRnGNNe6FB-22m5i069MwFjkl8mSH9PdyJyFLvH3bzMr1xYa_Ag0hD4WB26koAP0oDLUNVscq_6DuBYGF3RAmkJzJH9p3olUNQHxlo3XYqRwbTvfl76D1FDiJ5jMRGj2fUxRQ"></div><div class="rounded-3xl overflow-hidden border border-white/5 shadow-2xl"><img alt="Triple Cream Brie" class="w-full h-[500px] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrHt7poVFfZT24I0brfElRj9D_72WClqfFIRHdFBeHFukXUUul3J-pziBdQF3_AAmitX0ghvWOuAmk7Fy5J6FQm5RoqXKeKTyL20a36xPbm6DjTvTpBeGXCod_eKTqNt1ewaN5DgzsqsgYAzpr6Ut2jRQ4U8RqSUSg7XIY4DvSAWSGJgLCtcxE0jjAepDKbpd0a-h9XQ0boqElLa7WtH1aIlkBqW3XsArXCloBoeiggORCAcj1Ug"></div><div class="rounded-3xl overflow-hidden border border-white/5 shadow-2xl"><img alt="Ethiopian Coffee" class="w-full h-[500px] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPAh_bsaWYP6srf2kd0spjJGa4R8Mw0y5VhIhZEdi1BTWYAib0mtDBQZOlaupFB2zlLKzskl9r6tcN0ZUPEYNfAybSIZNUYKsHTUnc7pIna6ig7hpTUVsOaRcLVSyg6QEtrQ75bFSXjBPviFjoHGerE-BrCuPsn4KpJJ7alBv9WNPSirpmCcrBFUDkdhq5BCamqg1hqt0CdAAt5k9LnLDo1xsLa3REniE7rXp1fLX15loFzCPX8A"></div><div class="col-span-1 md:col-span-3 py-8 text-center"><h2 class="font-headline-md text-headline-md text-primary-fixed tracking-tight"><h1 id="REP.DOM. 1">Selección Artesanal</h1></h2></div><div class="rounded-3xl overflow-hidden border border-white/5 shadow-2xl"><img alt="Artisanal Olive Oil" class="w-full h-[500px] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-E3TUbHy044YvRMYP8KXhrTDdQIs5R-ZA2EOJINtXJkSNfker_RqOSVv8WL9wJqTS80LIJGAXUFN-mX8VC41Z5x-CpTXJhWLRNZCke2F8qBnhmsRnGNNe6FB-22m5i069MwFjkl8mSH9PdyJyFLvH3bzMr1xYa_Ag0hD4WB26koAP0oDLUNVscq_6DuBYGF3RAmkJzJH9p3olUNQHxlo3XYqRwbTvfl76D1FDiJ5jMRGj2fUxRQ"></div><div class="rounded-3xl overflow-hidden border border-white/5 shadow-2xl"><img alt="Triple Cream Brie" class="w-full h-[500px] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrHt7poVFfZT24I0brfElRj9D_72WClqfFIRHdFBeHFukXUUul3J-pziBdQF3_AAmitX0ghvWOuAmk7Fy5J6FQm5RoqXKeKTyL20a36xPbm6DjTvTpBeGXCod_eKTqNt1ewaN5DgzsqsgYAzpr6Ut2jRQ4U8RqSUSg7XIY4DvSAWSGJgLCtcxE0jjAepDKbpd0a-h9XQ0boqElLa7WtH1aIlkBqW3XsArXCloBoeiggORCAcj1Ug"></div><div class="rounded-3xl overflow-hidden border border-white/5 shadow-2xl"><img alt="Ethiopian Coffee" class="w-full h-[500px] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPAh_bsaWYP6srf2kd0spjJGa4R8Mw0y5VhIhZEdi1BTWYAib0mtDBQZOlaupFB2zlLKzskl9r6tcN0ZUPEYNfAybSIZNUYKsHTUnc7pIna6ig7hpTUVsOaRcLVSyg6QEtrQ75bFSXjBPviFjoHGerE-BrCuPsn4KpJJ7alBv9WNPSirpmCcrBFUDkdhq5BCamqg1hqt0CdAAt5k9LnLDo1xsLa3REniE7rXp1fLX15loFzCPX8A"></div><div class="col-span-1 md:col-span-3 py-8 text-center"><h2 class="font-headline-md text-headline-md text-primary-fixed tracking-tight"><h1 id="REP.DOM. 2">Delicias Importadas</h1></h2></div><div class="rounded-3xl overflow-hidden border border-white/5 shadow-2xl"><img alt="Artisanal Olive Oil" class="w-full h-[500px] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-E3TUbHy044YvRMYP8KXhrTDdQIs5R-ZA2EOJINtXJkSNfker_RqOSVv8WL9wJqTS80LIJGAXUFN-mX8VC41Z5x-CpTXJhWLRNZCke2F8qBnhmsRnGNNe6FB-22m5i069MwFjkl8mSH9PdyJyFLvH3bzMr1xYa_Ag0hD4WB26koAP0oDLUNVscq_6DuBYGF3RAmkJzJH9p3olUNQHxlo3XYqRwbTvfl76D1FDiJ5jMRGj2fUxRQ"></div><div class="rounded-3xl overflow-hidden border border-white/5 shadow-2xl"><img alt="Triple Cream Brie" class="w-full h-[500px] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrHt7poVFfZT24I0brfElRj9D_72WClqfFIRHdFBeHFukXUUul3J-pziBdQF3_AAmitX0ghvWOuAmk7Fy5J6FQm5RoqXKeKTyL20a36xPbm6DjTvTpBeGXCod_eKTqNt1ewaN5DgzsqsgYAzpr6Ut2jRQ4U8RqSUSg7XIY4DvSAWSGJgLCtcxE0jjAepDKbpd0a-h9XQ0boqElLa7WtH1aIlkBqW3XsArXCloBoeiggORCAcj1Ug"></div><div class="rounded-3xl overflow-hidden border border-white/5 shadow-2xl"><img alt="Ethiopian Coffee" class="w-full h-[500px] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPAh_bsaWYP6srf2kd0spjJGa4R8Mw0y5VhIhZEdi1BTWYAib0mtDBQZOlaupFB2zlLKzskl9r6tcN0ZUPEYNfAybSIZNUYKsHTUnc7pIna6ig7hpTUVsOaRcLVSyg6QEtrQ75bFSXjBPviFjoHGerE-BrCuPsn4KpJJ7alBv9WNPSirpmCcrBFUDkdhq5BCamqg1hqt0CdAAt5k9LnLDo1xsLa3REniE7rXp1fLX15loFzCPX8A"></div><div class="col-span-1 md:col-span-3 py-8 text-center"><h2 class="font-headline-md text-headline-md text-primary-fixed tracking-tight"><h1 id="REP.DOM. 3">Reserva Exclusiva</h1></h2></div><div class="rounded-3xl overflow-hidden border border-white/5 shadow-2xl"><img alt="Artisanal Olive Oil" class="w-full h-[500px] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-E3TUbHy044YvRMYP8KXhrTDdQIs5R-ZA2EOJINtXJkSNfker_RqOSVv8WL9wJqTS80LIJGAXUFN-mX8VC41Z5x-CpTXJhWLRNZCke2F8qBnhmsRnGNNe6FB-22m5i069MwFjkl8mSH9PdyJyFLvH3bzMr1xYa_Ag0hD4WB26koAP0oDLUNVscq_6DuBYGF3RAmkJzJH9p3olUNQHxlo3XYqRwbTvfl76D1FDiJ5jMRGj2fUxRQ"></div><div class="rounded-3xl overflow-hidden border border-white/5 shadow-2xl"><img alt="Triple Cream Brie" class="w-full h-[500px] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrHt7poVFfZT24I0brfElRj9D_72WClqfFIRHdFBeHFukXUUul3J-pziBdQF3_AAmitX0ghvWOuAmk7Fy5J6FQm5RoqXKeKTyL20a36xPbm6DjTvTpBeGXCod_eKTqNt1ewaN5DgzsqsgYAzpr6Ut2jRQ4U8RqSUSg7XIY4DvSAWSGJgLCtcxE0jjAepDKbpd0a-h9XQ0boqElLa7WtH1aIlkBqW3XsArXCloBoeiggORCAcj1Ug"></div><div class="rounded-3xl overflow-hidden border border-white/5 shadow-2xl"><img alt="Ethiopian Coffee" class="w-full h-[500px] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPAh_bsaWYP6srf2kd0spjJGa4R8Mw0y5VhIhZEdi1BTWYAib0mtDBQZOlaupFB2zlLKzskl9r6tcN0ZUPEYNfAybSIZNUYKsHTUnc7pIna6ig7hpTUVsOaRcLVSyg6QEtrQ75bFSXjBPviFjoHGerE-BrCuPsn4KpJJ7alBv9WNPSirpmCcrBFUDkdhq5BCamqg1hqt0CdAAt5k9LnLDo1xsLa3REniE7rXp1fLX15loFzCPX8A"></div></div></div></main>
+<!-- Footer -->
+<footer class="w-full pt-16 pb-8 bg-surface-container-lowest border-t border-white/5">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-1">
+<div class="font-headline-md text-headline-md text-primary mb-6">Colmado Elite</div>
+<h4 class="font-label-md text-primary mb-4">Concierge</h4>
+<ul class="space-y-3">
+<li class=""><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors hover:underline decoration-primary-fixed underline-offset-4" href="#">Store Locator</a></li>
+<li class=""><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors hover:underline decoration-primary-fixed underline-offset-4" href="#">Contact Us</a></li>
+<li class=""><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors hover:underline decoration-primary-fixed underline-offset-4" href="#">Artisanal Sourcing</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-primary mb-4">Legal</h4>
+<ul class="space-y-3">
+<li class=""><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors hover:underline decoration-primary-fixed underline-offset-4" href="#">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+<div class="px-margin-desktop max-w-container-max mx-auto mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-on-surface-variant font-label-sm">
+<span class="">© 2024 Colmado Elite. Premium Curation.</span>
+<div class="flex gap-6">
+<a class="hover:text-primary transition-colors" href="#">Instagram</a>
+<a class="hover:text-primary transition-colors" href="#">Twitter</a>
+<a class="hover:text-primary transition-colors" href="#">LinkedIn</a>
+</div>
+</div>
+</footer>
+<script>
+        const slider = document.getElementById('slider');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const dots = document.querySelectorAll('.slider-dot');
+
+        function updateDots() {
+            const index = Math.round(slider.scrollLeft / slider.offsetWidth);
+            dots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.add('active-dot', 'w-8');
+                    dot.classList.remove('w-3');
+                } else {
+                    dot.classList.remove('active-dot', 'w-8');
+                    dot.classList.add('w-3');
+                }
+            });
+        }
+
+        prevBtn.addEventListener('click', () => {
+            slider.scrollBy({ left: -slider.offsetWidth, behavior: 'smooth' });
+        });
+
+        nextBtn.addEventListener('click', () => {
+            slider.scrollBy({ left: slider.offsetWidth, behavior: 'smooth' });
+        });
+
+        slider.addEventListener('scroll', updateDots);
+
+        // Optional: Hover effect for primary buttons to increase glow intensity
+        document.querySelectorAll('button.bg-primary-container').forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                btn.style.boxShadow = '0 0 30px rgba(195, 244, 0, 0.4)';
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.boxShadow = '';
+            });
+        });
+    </script>
+
+
+
+
+
+
+
+
+</body></html>
